@@ -1,0 +1,6 @@
+dependencies {
+    compileOnly librairies.spigot
+    compileOnly librairies.spigotAPI
+
+    api project(':KitAPI')
+}

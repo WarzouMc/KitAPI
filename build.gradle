@@ -1,0 +1,25 @@
+plugins {
+}
+
+ext {
+    librairies = [:]
+}
+
+librairies.annotations = 'org.jetbrains:annotations:21.0.1'
+librairies.spigot = 'org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT'
+librairies.spigotAPI = 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'java-library'
+
+    group 'fr.warzou'
+    version '0.0.1'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+}

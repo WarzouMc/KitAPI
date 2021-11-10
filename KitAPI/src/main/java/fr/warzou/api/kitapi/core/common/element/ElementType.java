@@ -1,4 +1,4 @@
-package fr.warzou.api.kitapi.common.element;
+package fr.warzou.api.kitapi.core.common.element;
 
 public enum ElementType {
 

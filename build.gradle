@@ -8,6 +8,8 @@ ext {
 librairies.annotations = 'org.jetbrains:annotations:21.0.1'
 librairies.spigot = 'org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT'
 librairies.spigotAPI = 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+librairies.junitAPI = 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+librairies.junitEngine = 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
 allprojects {
     apply plugin: 'java-library'
@@ -22,4 +24,8 @@ allprojects {
         maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
+}
+
+test {
+    useJUnitPlatform()
 }

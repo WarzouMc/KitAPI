@@ -1,4 +1,4 @@
-package fr.warzou.api.kitapi.common.element;
+package fr.warzou.api.kitapi.core.common.element;
 
 import org.jetbrains.annotations.NotNull;
 

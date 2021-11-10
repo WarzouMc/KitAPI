@@ -1,7 +1,7 @@
 package fr.warzou.api.kitapi.impl.element;
 
-import fr.warzou.api.kitapi.common.element.ElementType;
-import fr.warzou.api.kitapi.common.element.KitElement;
+import fr.warzou.api.kitapi.core.common.element.ElementType;
+import fr.warzou.api.kitapi.core.common.element.KitElement;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 

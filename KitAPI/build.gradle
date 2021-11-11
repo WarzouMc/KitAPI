@@ -1,6 +1,4 @@
 dependencies {
-    api librairies.spigot
-    api librairies.spigotAPI
     api librairies.annotations
 
     testImplementation librairies.junitAPI

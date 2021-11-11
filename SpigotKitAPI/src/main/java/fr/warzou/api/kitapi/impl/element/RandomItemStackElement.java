@@ -3,7 +3,7 @@ package fr.warzou.api.kitapi.impl.element;
 import fr.warzou.api.kitapi.common.random.UniqueRandomObject;
 import fr.warzou.api.kitapi.core.common.element.ElementType;
 import fr.warzou.api.kitapi.core.common.element.RandomKitElement;
-import net.minecraft.world.item.ItemStack;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;

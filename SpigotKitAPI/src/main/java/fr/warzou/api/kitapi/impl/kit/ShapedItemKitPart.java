@@ -1,8 +1,10 @@
 package fr.warzou.api.kitapi.impl.kit;
 
 import fr.warzou.api.kitapi.core.common.element.KitElement;
+import fr.warzou.api.kitapi.core.kit.ShapedKit;
 import fr.warzou.api.kitapi.core.kit.sub.ItemKitPart;
 import fr.warzou.api.kitapi.impl.element.ItemStackElement;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -43,7 +45,12 @@ public class ShapedItemKitPart implements ItemKitPart {
     }
 
     @Override
-    public @NotNull List<? extends KitElement<?>> getKitContent() {
+    public @NotNull List<ItemStackElement> getKitContent() {
         return this.content;
+    }
+
+    @Override
+    public @NotNull ShapedKit toKit() {
+        return null;
     }
 }

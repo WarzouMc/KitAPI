@@ -117,4 +117,9 @@ public class UniqueRandomObject<O> extends RandomObject {
     public O next() {
         return (O) super.next();
     }
+
+    @Override
+    public @NotNull O[] getValues() {
+        return (O[]) super.getValues();
+    }
 }

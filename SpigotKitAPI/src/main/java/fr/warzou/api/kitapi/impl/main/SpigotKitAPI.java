@@ -6,9 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ServerKitAPI extends JavaPlugin {
+public class SpigotKitAPI extends JavaPlugin {
 
-    private final KitAPIHandler handler = new ServerKitAPIHandler();
+    private final KitAPIHandler handler = new SpigotKitAPIHandler();
 
     @Override
     public void onEnable() {

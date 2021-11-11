@@ -26,6 +26,20 @@ allprojects {
     }
 }
 
-test {
-    useJUnitPlatform()
+task doc(type: Javadoc) {
+    options.author true
+    options.windowTitle = "KitAPI"
+    StandardJavadocDocletOptions docletOptions = options as StandardJavadocDocletOptions
+    docletOptions.links('https://hub.spigotmc.org/javadocs/bukkit/')
+
+    subprojects.stream().filter(project -> project.getName() == "KitAPI").forEach(project -> {
+        project.tasks.withType(Javadoc).forEach(javadocTask -> {
+            source += javadocTask.source
+            classpath += javadocTask.classpath
+            excludes += javadocTask.excludes
+            includes += javadocTask.includes
+        })
+    })
+
+    destinationDir = file("${buildDir}/docs/javadoc")
 }

@@ -8,12 +8,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ServerKitAPI extends JavaPlugin {
 
-    private KitAPIHandler handler = new ServerKitAPIHandler();
+    private final KitAPIHandler handler = new ServerKitAPIHandler();
 
     @Override
     public void onEnable() {
         super.onEnable();
-        KitAPI.initAPI(handler);
+        KitAPI.initAPI(this.handler);
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "[" + ChatColor.GREEN + "KitAPI"
                 + ChatColor.DARK_GREEN + "] " + ChatColor.WHITE + "is now enable !");

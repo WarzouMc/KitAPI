@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RandomObjectTest {
+class UniqueRandomObjectTest {
 
     @Test
     void next() {
@@ -12,8 +12,8 @@ class RandomObjectTest {
         double probability2 = 1/3.0;
         double probability3 = 2/3.0;
         double[] probabilities = {probability1, probability2, probability3};
-        Object[] values = {27, "yop", true};
-        RandomObject object = new RandomObject(values, probabilities);
+        String[] values = {"1", "2", "3"};
+        UniqueRandomObject<String> object = new UniqueRandomObject<>(values, probabilities);
         int test = 10_000;
         int count1 = 0;
         int count2 = 0;

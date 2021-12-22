@@ -7,10 +7,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class ItemStackElement implements KitElement<ItemStack> {
 
-    private final @NotNull ItemStack itemStack;
+    private final int tick;
+    private final ItemStack itemStack;
+    public final int slot;
 
-    public ItemStackElement(@NotNull ItemStack itemStack) {
+    public ItemStackElement(int tick, @NotNull ItemStack itemStack, int slot) {
+        this.tick = Math.abs(tick);
         this.itemStack = itemStack;
+        this.slot = slot;
+    }
+
+    @Override
+    public int tick() {
+        return this.tick;
     }
 
     @Override
@@ -21,5 +30,9 @@ public class ItemStackElement implements KitElement<ItemStack> {
     @Override
     public @NotNull ItemStack get() {
         return this.itemStack.clone();
+    }
+
+    public int getSlot() {
+        return this.slot;
     }
 }

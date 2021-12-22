@@ -1,0 +1,4 @@
+name: SpigotKitAPI
+main: fr.warzou.api.kitapi.impl.main.SpigotKitAPI
+author: Warzou
+version: 0.0.1

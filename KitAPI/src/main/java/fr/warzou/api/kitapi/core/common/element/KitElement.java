@@ -4,6 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 public interface KitElement<E> {
 
+    int tick();
+
     @NotNull
     ElementType getType();
 

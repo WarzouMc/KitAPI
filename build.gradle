@@ -1,4 +1,5 @@
 plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
 ext {
@@ -13,6 +14,7 @@ librairies.junitEngine = 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
 allprojects {
     apply plugin: 'java-library'
+    apply plugin: 'com.github.johnrengelman.shadow'
 
     group 'fr.warzou'
     version '0.0.1'

@@ -11,18 +11,27 @@ import java.util.List;
 
 public class RandomItemStackElement implements RandomKitElement<ItemStack> {
 
-    private final @NotNull UniqueRandomObject<ItemStack> randomObject;
+    private final int tick;
+    private final UniqueRandomObject<ItemStack> randomObject;
+    private final int slot;
 
-    public RandomItemStackElement(ItemStack... itemStacks) {
-        this(UniqueRandomObject.createUniqueRandomObject(Arrays.asList(itemStacks)));
+    public RandomItemStackElement(int tick, int slot, ItemStack... itemStacks) {
+        this(tick, slot, UniqueRandomObject.createUniqueRandomObject(Arrays.asList(itemStacks)));
     }
 
-    public RandomItemStackElement(@NotNull List<ItemStack> itemStacks, double... probabilities) {
-        this(new UniqueRandomObject<>(itemStacks.toArray(new ItemStack[0]), probabilities));
+    public RandomItemStackElement(int tick, int slot, @NotNull List<ItemStack> itemStacks, double... probabilities) {
+        this(tick, slot, new UniqueRandomObject<>(itemStacks.toArray(new ItemStack[0]), probabilities));
     }
 
-    public RandomItemStackElement(@NotNull UniqueRandomObject<ItemStack> randomObject) {
+    public RandomItemStackElement(int tick, int slot, @NotNull UniqueRandomObject<ItemStack> randomObject) {
+        this.tick = Math.abs(tick);
         this.randomObject = randomObject;
+        this.slot = slot;
+    }
+
+    @Override
+    public int tick() {
+        return this.tick;
     }
 
     @Override
@@ -33,6 +42,10 @@ public class RandomItemStackElement implements RandomKitElement<ItemStack> {
     @Override
     public @NotNull ItemStack get() {
         return this.randomObject.next();
+    }
+
+    public int getSlot() {
+        return this.slot;
     }
 
     @Override

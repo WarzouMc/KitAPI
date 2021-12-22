@@ -8,6 +8,8 @@ import java.util.UUID;
 
 public interface KitMap {
 
+    boolean addPlayer(UUID uuid, PlayerKit kit);
+
     Set<UUID> getPlayerUUIDs();
 
     Optional<PlayerKit> getPlayerKit(UUID playerUUID);

@@ -3,24 +3,28 @@ package fr.warzou.api.kitapi.impl.common;
 import fr.warzou.api.kitapi.core.kit.save.PlayerKit;
 import fr.warzou.api.kitapi.core.manager.KitMap;
 
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class SpigotKitMap implements KitMap {
 
+    private final Map<UUID, PlayerKit> map;
+
+    public SpigotKitMap() {
+        this.map = new HashMap<>();
+    }
+
     @Override
     public Set<UUID> getPlayerUUIDs() {
-        return null;
+        return this.map.keySet();
     }
 
     @Override
     public Optional<PlayerKit> getPlayerKit(UUID playerUUID) {
-        return Optional.empty();
+        return Optional.ofNullable(this.map.get(playerUUID));
     }
 
     @Override
     public boolean hasKit(UUID playerUUID) {
-        return false;
+        return this.map.containsKey(playerUUID);
     }
 }

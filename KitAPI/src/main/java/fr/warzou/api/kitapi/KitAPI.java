@@ -2,10 +2,11 @@ package fr.warzou.api.kitapi;
 
 import fr.warzou.api.kitapi.common.handler.KitAPIHandler;
 import fr.warzou.api.kitapi.core.console.Color;
+import fr.warzou.api.kitapi.core.console.ConsolePrinter;
 import fr.warzou.api.kitapi.core.kit.Kit;
-import fr.warzou.api.kitapi.core.kit.save.PlayerKit;
-import fr.warzou.api.kitapi.core.manager.builders.KitBuilder;
 import fr.warzou.api.kitapi.core.manager.KitMap;
+import fr.warzou.api.kitapi.core.manager.builders.ItemKitPartBuilder;
+import fr.warzou.api.kitapi.core.manager.builders.KitBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
@@ -25,14 +26,14 @@ public class KitAPI {
     }
 
     public void onEnable() {
-        print(Color.DARK_GREEN + "[" + Color.GREEN + "KitAPI"
-                + Color.DARK_GREEN + "] " + Color.WHITE + "is now enable !");
+        print(ConsolePrinter.ColorCouple.GREEN, "%1$s[%2$sKitAPI%1$s] " + Color.WHITE + "is now enable !");
     }
 
     public void onDisable() {
-        print(Color.DARK_RED + "[" + Color.RED + "KitAPI"
-                + Color.DARK_RED + "] " + Color.WHITE + "is now disable !");
+        print(ConsolePrinter.ColorCouple.RED, "%1$s[%2$sKitAPI%1$s] " + Color.WHITE + "is now disable !");
     }
+
+    public static final UUID DEFAULT_KIT_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
 
     public static KitAPIHandler getHandler() {
         return handler;
@@ -50,21 +51,37 @@ public class KitAPI {
         handler.getPrinter().print(messages);
     }
 
+    public static void print(@NotNull ConsolePrinter.ColorCouple colorCouple, String message) {
+        handler.getPrinter().print(colorCouple, message);
+    }
+
+    public static void print(@NotNull ConsolePrinter.ColorCouple colorCouple, String... messages) {
+        handler.getPrinter().print(colorCouple, messages);
+    }
     @NotNull
     public static KitBuilder createKitBuilder() {
         return handler.createKitBuilder();
     }
 
-    public static Optional<PlayerKit> getPlayerKit(UUID playerUUID) {
+    @NotNull
+    public static ItemKitPartBuilder createItemKitPartBuilder() {
+        return handler.createItemKitPartBuilder();
+    }
+
+    @NotNull
+    public static Kit getDefaultKit() {
+        return handler.getKitMap().getDefaultKit();
+    }
+
+    public static Optional<Kit> getPlayerKit(@NotNull UUID playerUUID) {
         return handler.getKitMap().getPlayerKit(playerUUID);
     }
 
-    public static boolean hasKit(UUID playerUUID) {
+    public static boolean hasKit(@NotNull UUID playerUUID) {
         return handler.getKitMap().hasKit(playerUUID);
     }
 
-    public static Optional<Kit> getKit(UUID uuid) {
-        // TODO: 22/12/2021  
-        return null;
+    public static Optional<Kit> getKit(@NotNull UUID kitUUID) {
+        return handler.getKitMap().getKit(kitUUID);
     }
 }

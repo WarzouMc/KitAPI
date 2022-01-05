@@ -41,6 +41,11 @@ public class SpigotItemKitPartBuilder implements ItemKitPartBuilder {
     }
 
     @Override
+    public ItemKitPartBuilder withItem(KitElement<?> element) {
+        return null;
+    }
+
+    @Override
     public ItemKitPartBuilder withItems(KitElement<?>... elements) {
         return this;
     }

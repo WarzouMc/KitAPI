@@ -17,9 +17,7 @@ public interface ItemKitPartBuilder {
 
     ItemKitPartBuilder withItem(KitElement<?> element, int slot);
 
-    default ItemKitPartBuilder withItem(KitElement<?> element) {
-        return withItem(element);
-    }
+    ItemKitPartBuilder withItem(KitElement<?> element);
 
     ItemKitPartBuilder withItems(KitElement<?>... elements);
 
